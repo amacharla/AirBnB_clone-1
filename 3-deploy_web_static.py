@@ -5,6 +5,10 @@ from fabric.api import *
 from datetime import datetime
 import os
 
+env.user = 'ubuntu'
+env.hosts = ['142.44.167.236', '144.217.246.202']
+env.key_filename = '~/.ssh/holberton'
+
 
 def do_pack():
     """Compress all `web_static` files"""
@@ -23,10 +27,6 @@ def do_pack():
         result = "{:s}/{:s}".format(path, name) if result.succeeded else None
 
     return result
-
-env.user = 'ubuntu'
-env.hosts = ['142.44.167.236', '144.217.246.202']
-env.key_filename = '~/.ssh/holberton'
 
 
 def do_deploy(archive_path):
@@ -54,3 +54,13 @@ def do_deploy(archive_path):
         return False
 
     return True
+
+
+def deploy():
+    """Full deployment"""
+
+    archive_path = do_pack()
+
+    deployment_result = do_deploy(archive_path)
+
+    return deployment_result
