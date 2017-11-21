@@ -1,5 +1,11 @@
-# AirBnB Clone - The Console
-The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
+# AirBnB Clone v2 - MySQL
+The AirBnB clone - MySQL project connects our previous AirBnB clone v1 - The Console, to a MySQL database. 
+
+<img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/263/HBTN-hbnb-Final.png" style="height:15%;width:15%" />
+
+![Python](https://img.shields.io/badge/Python-v3.4.3-blue.svg)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-14.04_LTS-orange.svg)
+![PEP8](https://img.shields.io/badge/PEP8-v1.7-lightgrey.svg)
 
 #### Functionalities of this command interpreter:
 * Create a new object (ex: a new User or a new Place)
@@ -9,8 +15,8 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * Destroy an object
 
 ## Table of Content
-* [Environment](#environment)
 * [Installation](#installation)
+* [Environmental Variables](#environmental-variables)
 * [File Descriptions](#file-descriptions)
 * [Usage](#usage)
 * [Examples of use](#examples-of-use)
@@ -18,14 +24,20 @@ The console is the first segment of the AirBnB project at Holberton School that 
 * [Authors](#authors)
 * [License](#license)
 
-## Environment
-This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
-
 ## Installation
-* Clone this repository: `git clone "https://github.com/alexaorrico/AirBnB_clone.git"`
-* Access AirBnb directory: `cd AirBnB_clone`
+* Clone this repository: `https://github.com/amacharla/AirBnB_clone_v2.git"`
+* Access AirBnb directory: `cd AirBnB_clone_v2`
 * Run hbnb(interactively): `./console` and enter command
 * Run hbnb(non-interactively): `echo "<command>" | ./console.py`
+
+## Environmental Variables
+For this project, we used the following environmental variables:
+* `HBNB_ENV`: running environment. It can be “dev” or “test” for the moment (“production” soon!)
+* `HBNB_MYSQL_USER`: the username of your MySQL
+* `HBNB_MYSQL_PWD`: the password of your MySQL
+* `HBNB_MYSQL_HOST`: the hostname of your MySQL
+* `HBNB_MYSQL_DB`: the database name of your MySQL
+* `HBNB_TYPE_STORAGE`: the type of storage used. It can be “file” (using FileStorage) or db (using DBStorage)
 
 ## File Descriptions
 [console.py](console.py) - the console contains the entry point of the command interpreter. 
@@ -156,13 +168,13 @@ No known bugs at this time.
 ## Authors
 --Forked from--
 
-Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
+* Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
+* Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
 
 --Updated by--
 
-Anoop Macharla - [Github](https://github.com/amacharla) / [Twitter](https://twitter.com/noop_lion)
-Jeffrey Kanemitsu - [Github](https://github.com/jeffreykanemitsu) / [Twitter](https://twitter.com/canofmisosoup)
+* Anoop Macharla - [Github](https://github.com/amacharla) / [Twitter](https://twitter.com/noop_lion)
+* Jeffrey Kanemitsu - [Github](https://github.com/jeffreykanemitsu) / [Twitter](https://twitter.com/canofmisosoup)
 
 ## License
 Public Domain. No copy write protection. 
