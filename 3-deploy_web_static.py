@@ -5,6 +5,7 @@ from fabric.api import *
 from datetime import datetime
 import os
 
+
 def do_pack():
     """Compress all `web_static` files"""
 
@@ -14,8 +15,8 @@ def do_pack():
     local("mkdir -p versions")
 
     with lcd("versions"):
-        result = local("tar -cvzf {}.tgz ../web_static"\
-                    .format(name), capture=True)
+        result = local("tar -cvzf {}.tgz ../web_static"
+                       .format(name), capture=True)
         print(result)
 
         path = local("pwd")
@@ -26,6 +27,7 @@ def do_pack():
 env.user = 'ubuntu'
 env.hosts = ['142.44.167.236', '144.217.246.202']
 env.key_filename = '~/.ssh/holberton'
+
 
 def do_deploy(archive_path):
     """deploy the web_static"""
