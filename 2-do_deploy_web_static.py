@@ -45,6 +45,6 @@ def do_deploy(archive_path):
         sudo("ln -fs /data/web_static/releases/{} /data/web_static/current".\
                 format(dirname))
     except:
-        return True
-    else:
         return False
+    else:
+        return True
