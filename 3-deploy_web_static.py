@@ -23,8 +23,8 @@ def do_pack():
                        .format(name), capture=True)
         print(result)
 
-        path = local("pwd")
-        result = "{:s}/{:s}".format(path, name) if result.succeeded else None
+        path = local("pwd", capture=True)
+        result = "{:s}/{:s}.tgz".format(path, name) if result.succeeded else None
 
     return result
 
@@ -50,6 +50,8 @@ def do_deploy(archive_path):
 
         run("rm /data/web_static/current")
         run("ln -fs {} /data/web_static/current".format(dirname))
+
+        print(run("sudo service nginx restart"))
     except:
         return False
 
