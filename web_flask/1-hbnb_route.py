@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 """Using Flask"""
+from flask import Flask
+app = Flask(__name__)
 
-from web_flask import app
 
 @app.route('/', strict_slashes=False)
 def index():
     """ renders when no uri is requested """
     return 'Hello HBNB!'
+
 
 @app.route('/hbnb', strict_slashes=False)
 def display_HBNB():
