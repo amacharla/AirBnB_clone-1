@@ -70,3 +70,11 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         scoped = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session = scoped_session(scoped)  # make thread safe
+
+    def close(self):
+        """
+        `session.remove()` will dispose the current Session if present
+        which will first call `session.close()`, transactions are rolled back
+        look up -> `scoped_session.remove` for refresher
+        """
+        self.__session.remove()

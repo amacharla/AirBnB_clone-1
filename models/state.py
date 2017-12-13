@@ -10,12 +10,18 @@ import models
 
 class State(BaseModel, Base):
     """Representation of state """
-    # DBStorage
+    # if DBStorage
     if getenv("HBNB_TYPE_STORAGE") == "db":
         __tablename__ = "states"
         name = Column(String(128), nullable=False)
         cities = relationship("City", cascade="all, delete", backref="state")
-    else:  # FileStorage
+
+    else:  # if FileStorage
+
+        def __init__(self, *args, **kwargs):
+            """initializes state"""
+            super().__init__(*args, **kwargs)
+
         @property
         def cities(self):
             """getter that returns list of city inst
@@ -26,6 +32,3 @@ class State(BaseModel, Base):
                     city_list.append(inst)
             return city_list
 
-        def __init__(self, *args, **kwargs):
-            """initializes state"""
-            super().__init__(*args, **kwargs)

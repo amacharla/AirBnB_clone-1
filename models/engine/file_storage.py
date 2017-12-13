@@ -29,7 +29,7 @@ class FileStorage:
         if cls:
             attr = {}
             for k, o in self.__objects.items():
-                if o.__class__.__name__ == cls.__class__.__name__:
+                if o.__class__.__name__ == cls.__name__:
                     attr[k] = o
             return attr  # return only cls obj in __objects
         return self.__objects  # return all __objects
@@ -65,3 +65,7 @@ class FileStorage:
                 if value == obj:
                     del self.__objects[key]
                     break
+
+    def close(self):
+        """ calls reload """
+        reload()
