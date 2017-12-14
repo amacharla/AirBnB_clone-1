@@ -21,12 +21,10 @@ else:
 class BaseModel:
     """The BaseModel class from which future classes will be derived"""
 
-#if db_test:  # if database
     id = Column(String(60), nullable=False, primary_key=True, unique=True)
     created_at = Column(DateTime, default=datetime.utcnow(), nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow(),
                         onupdate=datetime.utcnow(), nullable=False)
-#else:
 
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
