@@ -4,25 +4,26 @@
         <TITLE>HBNB</TITLE>
     </HEAD>
     <BODY>
-	    {% if has_id == 0 %}
+    {%- if all_states is defined %}
 	    <H1>States</H1>
 	    <UL>
-		    {% for state in all_states|sort(attribute='name') %}
+		    {%- for state in all_states|sort(attribute='name') %}
 		    <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
-		    {% endfor %}
+		    {%- endfor %}
 	    </UL>
-	    {% else %}
-	    <H1>States: {{ }}</H1>
+    {%- endif %}
+    {%- if state is defined and state %}
+	    <H1>States: {{ state.name }}</H1>
 	    <H3>Cities:</H3>
 	    <UL>
-		    {% if all_state %}
-		    {% for id, name in all_states|dictsort(false, 'value')  %}
-		    <LI> {{ id }}: <B>{{ name }}</B></LI>
-		    {% endfor %}
-		    {% else %}
-		     <H1>Not found!</H1>
-		    {% endif %}
+		    {%- for city in state.cities|sort(attribute='name') %}
+		    <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+		    {%- endfor %}
 	    </UL>
-	    {% endif %}
+    {%- else %}
+    {%- if all_states is not defined %}
+	    <H1>Not found!</H1>
+    {%- endif %}
+    {%- endif %}
     </BODY>
 </HTML>

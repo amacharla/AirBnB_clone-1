@@ -8,16 +8,21 @@ app = Flask(__name__)
 
 @app.route('/states', strict_slashes=False)
 def display_All_States():
-    """ Requests all states """
+    """ Renders all states """
     all_states = storage.all(State).values()
-    return render_template('9-states.html', has_id=0, all_states=all_states)
+    return render_template('9-states.html', all_states=all_states)
+
 
 @app.route('/states/<id>', strict_slashes=False)
 def display_States(id):
-    """ Requests all states or 1 state with its cities """
-    all_states = storage.all(State).values()
-    all_states = all_states.get(id, 0)
-    return render_template('9-states.html', has_id=1, all_states=all_states)
+    """ Renders state with its cities based on id"""
+    states = storage.all(State).values()
+    state = 0
+    for instance in states:
+        if id == instance.id:
+            state = instance
+    return render_template('9-states.html', state=state)
+
 
 @app.teardown_appcontext
 def refresh_session(exception):
