@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+	    {% if has_id == 0 %}
+	    <H1>States</H1>
+	    <UL>
+		    {% for state in all_states|sort(attribute='name') %}
+		    <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+		    {% endfor %}
+	    </UL>
+	    {% else %}
+	    <H1>States: {{ }}</H1>
+	    <H3>Cities:</H3>
+	    <UL>
+		    {% if all_state %}
+		    {% for id, name in all_states|dictsort(false, 'value')  %}
+		    <LI> {{ id }}: <B>{{ name }}</B></LI>
+		    {% endfor %}
+		    {% else %}
+		     <H1>Not found!</H1>
+		    {% endif %}
+	    </UL>
+	    {% endif %}
+    </BODY>
+</HTML>
